@@ -1,0 +1,33 @@
+<Label>:
+    font_size: 40
+    color: 0.3, 0.6, 0.7, 1
+
+<MainWindow>:
+    padding: .1
+    spacing: .1
+    orientation: "vertical"
+    time_slider: time_slider
+    GridLayout:
+        cols:2
+        Label:
+            text: "Remaining time:"
+        Label:
+            id: time_rem
+            text: ""
+    GridLayout:
+        cols: 2
+        Label:
+            text: "Time in minutes: "
+        Label:
+            text: str(time_slider.value)
+    Slider:
+        id: time_slider
+        min: 0
+        max: 1200
+        step: 30
+        orientation: 'horizontal'
+    Button:
+        text: "Set Time"
+        background_color: (0, 1, 0, 1)
+        on_press: root.set_time()
+
