@@ -1,33 +1,34 @@
 <Label>:
-    font_size: 40
+    font_size: 60
+    size_hint: .4, .2
     color: 0.3, 0.6, 0.7, 1
 
 <MainWindow>:
-    padding: .1
-    spacing: .1
-    orientation: "vertical"
     time_slider: time_slider
-    GridLayout:
-        cols:2
-        Label:
-            text: "Remaining time:"
-        Label:
-            id: time_rem
-            text: ""
-    GridLayout:
-        cols: 2
-        Label:
-            text: "Time in minutes: "
-        Label:
-            text: str(time_slider.value)
+    Label:
+        text: "Remaining time:"
+        pos_hint: {"x": .1, "center_y":.9}
+    Label:
+        id: time_rem
+        text: "0"
+        pos_hint: {"x": 0.55, "center_y":.9}
+    Label:
+        text: "Time in minutes: "
+        pos_hint: {"x": .1, "center_y":.7}
+    Label:
+        text: str(time_slider.value)
+        pos_hint: {"x": .55, "center_y":.7}
     Slider:
         id: time_slider
         min: 0
         max: 1200
         step: 30
         orientation: 'horizontal'
+        pos_hint: {"left":.8, "center_y":.5}
     Button:
         text: "Set Time"
         background_color: (0, 1, 0, 1)
+        font_size: 60
         on_press: root.set_time()
-
+        size_hint: .4, .2
+        pos_hint: {"center_y":.2, "center_x":.5}

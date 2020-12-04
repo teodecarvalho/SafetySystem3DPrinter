@@ -32,3 +32,11 @@ class Bluetooth():
     def send_cmd(self, cmd):
         self.sender.write(cmd.encode())
         self.sender.flush()
+
+    def read_msg(self):
+        reading = ""
+        while self.receiver.available() > 0:
+            msg = self.receiver.read()
+            if msg not in [13, 10]:
+                reading += chr(msg)
+        return reading
